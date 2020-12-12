@@ -16,24 +16,34 @@
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
 
+
 </head>
 
 <body>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript">
+    var urlList = ["쿨엔조이", "어미새", "체리피커", "뽐뿌", "퀘이사존"];
+    var urlList2 = ["https://coolenjoy.net:443/bbs/jirum", "https://eomisae.co.kr/fs", "https://cpicker.com/", "http://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu", "https://quasarzone.com/bbs/qb_saleinfo"];
+
+    $(document).ready(function () {
+      $.each( urlList, function( index, value ){
+        var str = "<button onclick='open_in_frame("+index+");' class='list-group-item list-group-item-action bg-light' data-toggle='tab'>" + value + "</button>";
+        $( "#GroupList1" ).append( $(str) );
+
+      });
+    });
+
+    function open_in_frame(urlNum) {
+      $('#qwe0').attr('src', urlList2[urlNum]);
+    }
+  </script>
 
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">카페 모음 </div>
-      <div class="list-group list-group-flush">
-        <a href="#qwe1" data-toggle="tab" class="list-group-item list-group-item-action bg-light">짱구대디</a>
-        <a href="#qwe2" data-toggle="tab" class="list-group-item list-group-item-action bg-light">AMD 비쉐라</a>
-        <a href="#qwe3" data-toggle="tab" class="list-group-item list-group-item-action bg-light">
-          샤오미스토리
-        </a>
-        <a href="#qwe4" data-toggle="tab" class="list-group-item list-group-item-action bg-light">
-          쿨엔조이
-        </a>
+      <div class="sidebar-heading">지름 사이트 모음</div>
+      <div class="list-group list-group-flush" id = "GroupList1">
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -70,45 +80,17 @@
           </ul>
         </div>
       </nav>
-      <a class="tab-content">
-
-          <iframe src="https://cafe.naver.com/zzang9daddy?iframe_url=/ArticleList.nhn%3Fsearch.clubid=29328371%26search.menuid=15%26search.boardtype=L"
+      <a class="tab-content" id = "GroupList2">
+        <iframe src="https://coolenjoy.net:443/bbs/jirum"
           frameborder="0" 
               marginheight="0" 
               marginwidth="0" 
               width="100%" 
               height="100%" 
               scrolling="auto"
-              class="tab-pane fade show active" id="qwe1"
+              class="tab-pane fade show active" id="qwe0"
           ></iframe>
-          <iframe src="https://cafe.naver.com/fx8300?iframe_url=/ArticleList.nhn%3Fsearch.clubid=28173877%26search.menuid=82%26search.boardtype=L"
-          frameborder="0" 
-              marginheight="0" 
-              marginwidth="0" 
-              width="100%" 
-              height="100%" 
-              scrolling="auto"
-              class="tab-pane fade" id="qwe2"
-          ></iframe>
-          <iframe src="https://cafe.naver.com/xst?iframe_url=/ArticleList.nhn%3Fsearch.clubid=27738104%26search.menuid=137%26search.boardtype=L"
-          frameborder="0" 
-              marginheight="0" 
-              marginwidth="0" 
-              width="100%" 
-              height="100%" 
-              scrolling="auto"
-              class="tab-pane fade" id="qwe3"
-          ></iframe>
-          <iframe src="https://coolenjoy.net:443/bbs/jirum"
-          frameborder="0" 
-              marginheight="0" 
-              marginwidth="0" 
-              width="100%" 
-              height="100%" 
-              scrolling="auto"
-              class="tab-pane fade" id="qwe4"
-          ></iframe>
-        </a>
+      </a>
     </div>
     <!-- /#page-content-wrapper -->
 
